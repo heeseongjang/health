@@ -58,6 +58,8 @@ h1{margin:0; font-size:clamp(28px,4.4vw,40px); font-weight:700; letter-spacing:-
   position:sticky; top:0; z-index:5; padding:14px 0; margin-bottom:22px;
   background:linear-gradient(var(--ground) 78%, transparent); border-bottom:1px solid var(--line-soft)}
 .rail{display:flex; gap:6px; flex-wrap:wrap}
+.ctl-right{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+.sr-only{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
 .pill{display:flex; align-items:baseline; gap:6px; padding:7px 13px; border:1px solid var(--line);
   background:var(--surface); color:var(--ink-2); border-radius:999px; font:inherit; font-size:14px;
   font-weight:500; cursor:pointer; transition:background .14s, border-color .14s, color .14s}
@@ -69,6 +71,13 @@ h1{margin:0; font-size:clamp(28px,4.4vw,40px); font-weight:700; letter-spacing:-
 .seg button{border:0; background:none; font:inherit; font-size:13.5px; font-weight:500; color:var(--muted);
   padding:5px 14px; border-radius:999px; cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--surface); color:var(--ink); box-shadow:var(--shadow)}
+.sortwrap{position:relative; display:inline-flex}
+.sortwrap::after{content:"\25BE"; position:absolute; right:12px; top:50%; transform:translateY(-50%);
+  pointer-events:none; color:var(--muted); font-size:11px}
+.sortwrap select{appearance:none; -webkit-appearance:none; font:inherit; font-size:13.5px; font-weight:500;
+  color:var(--ink-2); background:var(--surface); border:1px solid var(--line); border-radius:999px;
+  padding:7px 30px 7px 13px; cursor:pointer}
+.sortwrap select:hover{border-color:var(--ink-2)}
 .listmeta{margin:0 0 14px; font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted)}
 
 /* ---------- 세션 카드 ---------- */
@@ -154,9 +163,18 @@ footer{margin-top:44px; padding-top:18px; border-top:1px solid var(--line);
 
   <div class="controls">
     <div class="rail" id="rail" role="group" aria-label="날짜 선택"></div>
+    <div class="ctl-right">
+    <div class="sortwrap">
+      <label class="sr-only" for="sort">정렬 순서</label>
+      <select id="sort" aria-label="정렬 순서">
+        <option value="desc">최신순</option>
+        <option value="asc">오래된순</option>
+      </select>
+    </div>
     <div class="seg" role="group" aria-label="보기 방식">
       <button type="button" data-view="day" aria-pressed="true">날짜별</button>
       <button type="button" data-view="ex" aria-pressed="false">운동별</button>
+    </div>
     </div>
   </div>
 
@@ -180,6 +198,11 @@ const SESSIONS = DATA.slice().sort((a, b) => (b.date ?? '').localeCompare(a.date
 
 let view = 'day';
 let pick = null;   // null = 전체 날짜
+let sort = 'desc'; // desc = 최신순, asc = 오래된순
+try { sort = localStorage.getItem('wl-sort') === 'asc' ? 'asc' : 'desc'; } catch (e) { /* 저장 불가 환경 */ }
+
+const ordered = () => (sort === 'desc' ? SESSIONS : SESSIONS.slice().reverse());
+const sortLabel = () => (sort === 'desc' ? '최신순' : '오래된순');
 
 /* ---------- 헤더 통계 ---------- */
 const totalVol = SESSIONS.reduce((s, x) => s + (x.totalVolume || 0), 0);
@@ -207,7 +230,7 @@ const mkPill = (label, note, key) => {
 function paintRail() {
   rail.replaceChildren();
   rail.append(mkPill('전체', String(SESSIONS.length), null));
-  for (const s of SESSIONS) rail.append(mkPill(s.dateLabel, s.weekday, s.date));
+  for (const s of ordered()) rail.append(mkPill(s.dateLabel, s.weekday, s.date));
 }
 
 /* ---------- 조각 ---------- */
@@ -287,12 +310,12 @@ function sessionCard(s) {
   return card;
 }
 
-const visible = () => (pick ? SESSIONS.filter(s => s.date === pick) : SESSIONS);
+const visible = () => (pick ? ordered().filter(s => s.date === pick) : ordered());
 
 function renderSessions(target) {
   const list = visible();
   if (!list.length) { target.append(el('p', 'sub', '선택한 날짜에는 기록이 없습니다.')); return; }
-  target.append(el('p', 'listmeta', pick ? `${list[0].dateLabel} (${list[0].weekday}) · 1회` : `전체 ${list.length}회 · 최신순`));
+  target.append(el('p', 'listmeta', pick ? `${list[0].dateLabel} (${list[0].weekday}) · 1회` : `전체 ${list.length}회 · ${sortLabel()}`));
   for (const s of list) target.append(sessionCard(s));
 }
 
@@ -301,7 +324,11 @@ function renderExercises(target) {
   const rows = [];
   for (const s of visible()) for (const ex of s.exercises) rows.push({ ex, s });
   if (!rows.length) { target.append(el('p', 'sub', '선택한 날짜에는 기록이 없습니다.')); return; }
-  rows.sort((a, b) => a.ex.name.localeCompare(b.ex.name, 'ko'));
+  // 운동명 가나다순, 같은 운동이 여러 날 있으면 선택한 정렬 순서대로
+  const byDate = (a, b) => (sort === 'desc'
+    ? (b.s.date ?? '').localeCompare(a.s.date ?? '')
+    : (a.s.date ?? '').localeCompare(b.s.date ?? ''));
+  rows.sort((a, b) => a.ex.name.localeCompare(b.ex.name, 'ko') || byDate(a, b));
 
   const head = el('div', 'group-head');
   head.append(el('div', 'glyph', '＃'));
@@ -327,5 +354,13 @@ function render() {
   (view === 'day' ? renderSessions : renderExercises)(out);
 }
 for (const b of document.querySelectorAll('.seg button')) b.onclick = () => { view = b.dataset.view; render(); };
+
+const sortSel = document.getElementById('sort');
+sortSel.value = sort;
+sortSel.onchange = () => {
+  sort = sortSel.value;
+  try { localStorage.setItem('wl-sort', sort); } catch (e) { /* 저장 불가 환경 */ }
+  render();
+};
 render();
 </script>
