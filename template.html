@@ -1,0 +1,331 @@
+<meta name="robots" content="noindex, nofollow">
+<title>날짜별 PT 수업일지</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap">
+<style>
+:root{
+  --ground:#EDF0F2; --surface:#FFFFFF; --surface-2:#F5F8FA;
+  --line:#D7DEE4; --line-soft:#E7ECF0;
+  --ink:#171B21; --ink-2:#3D454F; --muted:#6E7884;
+  --accent:#C33A1E; --accent-ink:#C33A1E; --accent-soft:#F7E4DE;
+  --steel:#3F6382; --steel-soft:#E3EAF1;
+  --shadow:0 1px 2px rgba(23,27,33,.05), 0 8px 24px -18px rgba(23,27,33,.35);
+  --r:14px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101317; --surface:#181C22; --surface-2:#1E232A;
+    --line:#2B323B; --line-soft:#232930;
+    --ink:#E9EDF1; --ink-2:#C2CAD3; --muted:#8B96A2;
+    --accent:#F0674A; --accent-ink:#F58768; --accent-soft:#3A1C15;
+    --steel:#93B6D3; --steel-soft:#1B2935;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -20px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101317; --surface:#181C22; --surface-2:#1E232A;
+  --line:#2B323B; --line-soft:#232930;
+  --ink:#E9EDF1; --ink-2:#C2CAD3; --muted:#8B96A2;
+  --accent:#F0674A; --accent-ink:#F58768; --accent-soft:#3A1C15;
+  --steel:#93B6D3; --steel-soft:#1B2935;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -20px rgba(0,0,0,.9);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px; margin:0 auto; padding:40px 20px 96px}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:6px}
+
+/* ---------- 헤더 ---------- */
+.masthead{display:flex; flex-wrap:wrap; gap:20px 32px; align-items:flex-end; justify-content:space-between;
+  padding-bottom:22px; border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--accent-ink); margin:0 0 8px}
+h1{margin:0; font-size:clamp(28px,4.4vw,40px); font-weight:700; letter-spacing:-.02em; line-height:1.15; text-wrap:balance}
+.sub{margin:10px 0 0; color:var(--muted); font-size:14px; max-width:46ch}
+.stats{display:flex; gap:26px; flex-wrap:wrap}
+.stat{display:flex; flex-direction:column; gap:2px}
+.stat b{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; font-size:26px; font-weight:600; line-height:1}
+.stat span{font-size:11.5px; color:var(--muted)}
+
+/* ---------- 컨트롤 ---------- */
+.controls{display:flex; flex-wrap:wrap; gap:14px 22px; align-items:center; justify-content:space-between;
+  position:sticky; top:0; z-index:5; padding:14px 0; margin-bottom:22px;
+  background:linear-gradient(var(--ground) 78%, transparent); border-bottom:1px solid var(--line-soft)}
+.rail{display:flex; gap:6px; flex-wrap:wrap}
+.pill{display:flex; align-items:baseline; gap:6px; padding:7px 13px; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink-2); border-radius:999px; font:inherit; font-size:14px;
+  font-weight:500; cursor:pointer; transition:background .14s, border-color .14s, color .14s}
+.pill .n{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--muted)}
+.pill:hover{border-color:var(--ink-2)}
+.pill[aria-pressed="true"]{background:var(--ink); border-color:var(--ink); color:var(--ground)}
+.pill[aria-pressed="true"] .n{color:var(--ground); opacity:.65}
+.seg{display:flex; padding:3px; gap:3px; background:var(--surface-2); border:1px solid var(--line); border-radius:999px}
+.seg button{border:0; background:none; font:inherit; font-size:13.5px; font-weight:500; color:var(--muted);
+  padding:5px 14px; border-radius:999px; cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--surface); color:var(--ink); box-shadow:var(--shadow)}
+.listmeta{margin:0 0 14px; font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted)}
+
+/* ---------- 세션 카드 ---------- */
+.session{background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  box-shadow:var(--shadow); overflow:hidden; margin-bottom:18px}
+.session-head{display:flex; flex-wrap:wrap; gap:12px 18px; align-items:center;
+  padding:16px 20px; border-bottom:1px solid var(--line-soft); background:var(--surface-2)}
+.datemark{flex:0 0 auto; width:56px; padding:7px 0; display:flex; flex-direction:column; align-items:center;
+  gap:1px; border-radius:12px; background:var(--accent-soft); color:var(--accent-ink); line-height:1.05}
+.datemark .m{font-size:11px; opacity:.9}
+.datemark b{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; font-size:22px; font-weight:600}
+.when{flex:1 1 220px; display:flex; flex-direction:column; gap:7px; min-width:0}
+.whenline{display:flex; align-items:baseline; gap:9px; flex-wrap:wrap}
+.whenline .dow{font-size:17px; font-weight:600; letter-spacing:-.01em}
+.whenline .time{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted)}
+.tags{display:flex; gap:7px; flex-wrap:wrap; align-items:center}
+.tag{font-size:12.5px; padding:3px 10px; border-radius:999px; background:var(--steel-soft); color:var(--steel); font-weight:500}
+.tag.part{background:var(--ink); color:var(--ground)}
+.vol-badge{margin-left:auto; text-align:right; line-height:1.15}
+.vol-badge b{display:block; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:21px; font-weight:600; color:var(--accent-ink)}
+.vol-badge span{font-size:11px; color:var(--muted)}
+
+.note{display:flex; gap:12px; padding:16px 20px; border-bottom:1px solid var(--line-soft); background:var(--surface)}
+.note .k{flex:0 0 66px; font-size:11.5px; color:var(--muted); padding-top:3px}
+.note p{margin:0; white-space:pre-line; color:var(--ink-2); font-size:14px}
+
+/* ---------- 운동 행 ---------- */
+.ex{display:grid; grid-template-columns:minmax(0,38%) minmax(0,62%); gap:18px 26px;
+  padding:18px 20px; border-bottom:1px solid var(--line-soft)}
+.ex:last-child{border-bottom:0}
+.ex:nth-child(even){background:var(--surface-2)}
+.ex-name{margin:0 0 10px; font-size:16.5px; font-weight:600; letter-spacing:-.01em}
+.sets{list-style:none; display:flex; flex-wrap:wrap; gap:6px; margin:0 0 10px; padding:0}
+.sets li{display:flex; align-items:baseline; gap:6px; padding:4px 9px; border:1px solid var(--line);
+  border-radius:8px; background:var(--surface); font-family:"IBM Plex Mono",monospace;
+  font-variant-numeric:tabular-nums; font-size:13px}
+.sets .i{font-size:10px; color:var(--muted)}
+.sets .x{color:var(--muted); padding:0 1px}
+.ex-vol{margin:0; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; font-size:12px; color:var(--muted)}
+.ex-vol b{color:var(--ink-2); font-weight:600}
+.cues{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px}
+.cues li{position:relative; padding-left:15px; font-size:14px; color:var(--ink-2); line-height:1.55}
+.cues li::before{content:""; position:absolute; left:0; top:.66em; width:6px; height:1.5px; background:var(--accent)}
+.cues.empty{color:var(--muted); font-size:13px}
+.cue-src{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.04em; color:var(--muted); margin:0 0 8px}
+
+/* ---------- 운동별 뷰 ---------- */
+.group-head{display:flex; align-items:center; gap:14px; margin-bottom:16px}
+.glyph{width:46px; height:46px; flex:0 0 auto; display:grid; place-items:center; border-radius:12px;
+  background:var(--accent-soft); color:var(--accent-ink); font-size:20px; font-weight:700}
+.group-head h2{margin:0; font-size:19px; font-weight:600; letter-spacing:-.01em}
+.group-head p{margin:1px 0 0; font-size:12.5px; color:var(--muted)}
+.group-head .line{flex:1; height:1px; background:var(--line)}
+.ex-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+  box-shadow:var(--shadow); margin-bottom:14px}
+.ex-card .ex{border-bottom:0}
+.ex-card .ex:nth-child(even){background:transparent}
+
+footer{margin-top:44px; padding-top:18px; border-top:1px solid var(--line);
+  font-size:12.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 16px}
+
+@media (max-width:720px){
+  .wrap{padding:28px 14px 72px}
+  .ex{grid-template-columns:1fr; gap:12px}
+  .stats{gap:18px}
+  .stat b{font-size:22px}
+  .controls{position:static}
+  .vol-badge{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">PT 수업일지 · 2026</p>
+      <h1>날짜별 운동 기록</h1>
+      <p class="sub">기록된 날짜를 골라, 그날 무엇을 몇 세트·무게 몇에 몇 회 했는지와 기구별 코멘트를 한 화면에서 봅니다.</p>
+    </div>
+    <div class="stats" id="stats"></div>
+  </header>
+
+  <div class="controls">
+    <div class="rail" id="rail" role="group" aria-label="날짜 선택"></div>
+    <div class="seg" role="group" aria-label="보기 방식">
+      <button type="button" data-view="day" aria-pressed="true">날짜별</button>
+      <button type="button" data-view="ex" aria-pressed="false">운동별</button>
+    </div>
+  </div>
+
+  <main id="out"></main>
+
+  <footer>
+    <span>출처 · Google 스프레드시트 「수업일지」 탭</span>
+    <span id="range"></span>
+    <span>무게·횟수·볼륨은 시트에 입력된 값 그대로입니다</span>
+  </footer>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const DATA = JSON.parse(document.getElementById('data').textContent);
+const el = (t, cls, txt) => { const n = document.createElement(t); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; };
+const nf = n => (n ?? 0).toLocaleString('ko-KR');
+
+/* 최신 날짜가 앞으로 */
+const SESSIONS = DATA.slice().sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''));
+
+let view = 'day';
+let pick = null;   // null = 전체 날짜
+
+/* ---------- 헤더 통계 ---------- */
+const totalVol = SESSIONS.reduce((s, x) => s + (x.totalVolume || 0), 0);
+const exCount = SESSIONS.reduce((s, x) => s + x.exercises.length, 0);
+for (const [k, v] of [['기록된 날', SESSIONS.length], ['총 볼륨', nf(totalVol)], ['운동 기록', exCount]]) {
+  const box = el('div', 'stat');
+  box.append(el('b', null, String(v)), el('span', null, k));
+  document.getElementById('stats').append(box);
+}
+const asc = SESSIONS.slice().reverse();
+document.getElementById('range').textContent =
+  asc.length ? `기록 기간 · ${asc[0].dateLabel} – ${asc[asc.length - 1].dateLabel}` : '';
+
+/* ---------- 날짜 선택 ---------- */
+const rail = document.getElementById('rail');
+const mkPill = (label, note, key) => {
+  const b = el('button', 'pill');
+  b.type = 'button';
+  b.setAttribute('aria-pressed', String(pick === key));
+  b.append(el('span', null, label));
+  if (note) b.append(el('span', 'n', note));
+  b.onclick = () => { pick = pick === key ? null : key; render(); };
+  return b;
+};
+function paintRail() {
+  rail.replaceChildren();
+  rail.append(mkPill('전체', String(SESSIONS.length), null));
+  for (const s of SESSIONS) rail.append(mkPill(s.dateLabel, s.weekday, s.date));
+}
+
+/* ---------- 조각 ---------- */
+function setList(sets) {
+  const ul = el('ul', 'sets');
+  sets.forEach((s, i) => {
+    const li = el('li');
+    li.append(el('span', 'i', String(i + 1)));
+    const v = el('span');
+    v.append(document.createTextNode(nf(s.weight)), el('span', 'x', '×'), document.createTextNode(`${nf(s.reps)}회`));
+    li.append(v);
+    ul.append(li);
+  });
+  return ul;
+}
+
+function cueList(points) {
+  const ul = el('ul', points.length ? 'cues' : 'cues empty');
+  if (!points.length) ul.append(el('li', null, '이 운동에는 따로 남긴 코멘트가 없습니다.'));
+  for (const p of points) ul.append(el('li', null, p));
+  return ul;
+}
+
+function exRow(ex, srcLabel) {
+  const row = el('div', 'ex');
+  const left = el('div');
+  left.append(el('h3', 'ex-name', ex.name));
+  if (ex.sets.length) {
+    left.append(setList(ex.sets));
+    const v = el('p', 'ex-vol');
+    v.append(document.createTextNode(`${ex.sets.length}세트 · 볼륨 `), el('b', null, nf(ex.volume)));
+    left.append(v);
+  } else {
+    left.append(el('p', 'ex-vol', '세트 기록 없음'));
+  }
+  const right = el('div');
+  if (srcLabel) right.append(el('p', 'cue-src', srcLabel));
+  right.append(cueList(ex.points));
+  row.append(left, right);
+  return row;
+}
+
+/* ---------- 날짜별 뷰 ---------- */
+function sessionCard(s) {
+  const card = el('article', 'session');
+  const head = el('div', 'session-head');
+
+  const mark = el('div', 'datemark');
+  const [, mm, dd] = (s.date ?? '--,--,--').split('-');
+  mark.append(el('span', 'm', `${Number(mm)}월`), el('b', null, dd));
+
+  const when = el('div', 'when');
+  const line = el('div', 'whenline');
+  line.append(el('span', 'dow', `${s.weekday}요일`));
+  if (s.time) line.append(el('span', 'time', s.time));
+  when.append(line);
+
+  const tags = el('div', 'tags');
+  if (s.part) tags.append(el('span', 'tag part', s.part));
+  if (s.condition) tags.append(el('span', 'tag', `컨디션 ${s.condition}`));
+  tags.append(el('span', 'tag', `운동 ${s.exercises.length}개`));
+  when.append(tags);
+
+  const vol = el('div', 'vol-badge');
+  vol.append(el('b', null, nf(s.totalVolume)), el('span', null, '총 볼륨'));
+
+  head.append(mark, when, vol);
+  card.append(head);
+
+  for (const [k, text] of [['특이사항', s.note], ['개인운동 후', s.feedback]]) {
+    if (!text) continue;
+    const n = el('div', 'note');
+    n.append(el('div', 'k', k), el('p', null, text));
+    card.append(n);
+  }
+  for (const ex of s.exercises) card.append(exRow(ex, null));
+  return card;
+}
+
+const visible = () => (pick ? SESSIONS.filter(s => s.date === pick) : SESSIONS);
+
+function renderSessions(target) {
+  const list = visible();
+  if (!list.length) { target.append(el('p', 'sub', '선택한 날짜에는 기록이 없습니다.')); return; }
+  target.append(el('p', 'listmeta', pick ? `${list[0].dateLabel} (${list[0].weekday}) · 1회` : `전체 ${list.length}회 · 최신순`));
+  for (const s of list) target.append(sessionCard(s));
+}
+
+/* ---------- 운동별 뷰 ---------- */
+function renderExercises(target) {
+  const rows = [];
+  for (const s of visible()) for (const ex of s.exercises) rows.push({ ex, s });
+  if (!rows.length) { target.append(el('p', 'sub', '선택한 날짜에는 기록이 없습니다.')); return; }
+  rows.sort((a, b) => a.ex.name.localeCompare(b.ex.name, 'ko'));
+
+  const head = el('div', 'group-head');
+  head.append(el('div', 'glyph', '＃'));
+  const t = el('div');
+  t.append(el('h2', null, '운동별 코멘트'));
+  t.append(el('p', null, `${rows.length}개 기록 · 가나다순${pick ? ` · ${rows[0].s.dateLabel}` : ''}`));
+  head.append(t, el('div', 'line'));
+  target.append(head);
+
+  for (const { ex, s } of rows) {
+    const card = el('article', 'ex-card');
+    card.append(exRow(ex, `${s.dateLabel} (${s.weekday})${s.part ? ` · ${s.part}` : ''}`));
+    target.append(card);
+  }
+}
+
+/* ---------- 렌더 ---------- */
+function render() {
+  paintRail();
+  for (const b of document.querySelectorAll('.seg button')) b.setAttribute('aria-pressed', String(b.dataset.view === view));
+  const out = document.getElementById('out');
+  out.replaceChildren();
+  (view === 'day' ? renderSessions : renderExercises)(out);
+}
+for (const b of document.querySelectorAll('.seg button')) b.onclick = () => { view = b.dataset.view; render(); };
+render();
+</script>
