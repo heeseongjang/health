@@ -242,5 +242,17 @@
         ]
       }
     ]
+  },
+  {
+    "date": "2026-09-05",
+    "dateLabel": "9월 5일",
+    "weekday": "토",
+    "time": "9시",
+    "part": "가슴",
+    "condition": null,
+    "note": null,
+    "feedback": null,
+    "totalVolume": 0,
+    "exercises": []
   }
 ]
