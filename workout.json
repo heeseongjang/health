@@ -362,5 +362,17 @@
         ]
       }
     ]
+  },
+  {
+    "date": "2026-09-09",
+    "dateLabel": "9월 9일",
+    "weekday": "수",
+    "time": "20시",
+    "part": "하체",
+    "condition": null,
+    "note": null,
+    "feedback": null,
+    "totalVolume": 0,
+    "exercises": []
   }
 ]
