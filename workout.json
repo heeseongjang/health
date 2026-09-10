@@ -369,10 +369,107 @@
     "weekday": "수",
     "time": "20시",
     "part": "하체",
-    "condition": null,
+    "condition": "좋음",
     "note": null,
     "feedback": null,
-    "totalVolume": 0,
-    "exercises": []
+    "totalVolume": 2980,
+    "exercises": [
+      {
+        "name": "스탠딩 힙 어브덕션",
+        "sets": [
+          {
+            "weight": 20,
+            "reps": 15
+          },
+          {
+            "weight": 20,
+            "reps": 15
+          },
+          {
+            "weight": 20,
+            "reps": 15
+          },
+          {
+            "weight": 20,
+            "reps": 15
+          }
+        ],
+        "volume": 1200,
+        "points": []
+      },
+      {
+        "name": "스쿼트 프레스",
+        "sets": [
+          {
+            "weight": 20,
+            "reps": 10
+          },
+          {
+            "weight": 20,
+            "reps": 10
+          },
+          {
+            "weight": 20,
+            "reps": 10
+          },
+          {
+            "weight": 20,
+            "reps": 10
+          },
+          {
+            "weight": 20,
+            "reps": 10
+          }
+        ],
+        "volume": 1000,
+        "points": []
+      },
+      {
+        "name": "힙 쓰러스트",
+        "sets": [
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          }
+        ],
+        "volume": 60,
+        "points": []
+      },
+      {
+        "name": "레그 컬",
+        "sets": [
+          {
+            "weight": 15,
+            "reps": 12
+          },
+          {
+            "weight": 15,
+            "reps": 12
+          },
+          {
+            "weight": 15,
+            "reps": 12
+          },
+          {
+            "weight": 15,
+            "reps": 12
+          }
+        ],
+        "volume": 720,
+        "points": []
+      }
+    ]
   }
 ]
