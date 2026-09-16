@@ -484,5 +484,17 @@
         ]
       }
     ]
+  },
+  {
+    "date": "2026-09-16",
+    "dateLabel": "9월 16일",
+    "weekday": "수",
+    "time": "20시",
+    "part": "어깨 메인",
+    "condition": null,
+    "note": null,
+    "feedback": null,
+    "totalVolume": 0,
+    "exercises": []
   }
 ]
