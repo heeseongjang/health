@@ -491,10 +491,107 @@
     "weekday": "수",
     "time": "20시",
     "part": "어깨 메인",
-    "condition": null,
+    "condition": "좋음",
     "note": null,
     "feedback": null,
-    "totalVolume": 0,
-    "exercises": []
+    "totalVolume": 898,
+    "exercises": [
+      {
+        "name": "리버스 펙덱 플라이",
+        "sets": [
+          {
+            "weight": 10,
+            "reps": 15
+          },
+          {
+            "weight": 10,
+            "reps": 15
+          },
+          {
+            "weight": 10,
+            "reps": 15
+          },
+          {
+            "weight": 10,
+            "reps": 15
+          }
+        ],
+        "volume": 600,
+        "points": []
+      },
+      {
+        "name": "오버헤드 프레스 (스미스)",
+        "sets": [
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          }
+        ],
+        "volume": 60,
+        "points": []
+      },
+      {
+        "name": "숄더 프레스 (머신)",
+        "sets": [
+          {
+            "weight": 2.3,
+            "reps": 15
+          },
+          {
+            "weight": 2.3,
+            "reps": 15
+          },
+          {
+            "weight": 2.3,
+            "reps": 15
+          },
+          {
+            "weight": 2.3,
+            "reps": 15
+          }
+        ],
+        "volume": 138,
+        "points": []
+      },
+      {
+        "name": "사이드 레터럴 레이즈",
+        "sets": [
+          {
+            "weight": 1,
+            "reps": 20
+          },
+          {
+            "weight": 1,
+            "reps": 20
+          },
+          {
+            "weight": 1,
+            "reps": 20
+          },
+          {
+            "weight": 1,
+            "reps": 20
+          },
+          {
+            "weight": 1,
+            "reps": 20
+          }
+        ],
+        "volume": 100,
+        "points": []
+      }
+    ]
   }
 ]
