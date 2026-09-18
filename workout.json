@@ -492,7 +492,7 @@
     "time": "20시",
     "part": "어깨 메인",
     "condition": "좋음",
-    "note": null,
+    "note": "오늘따라 상큼! 하지만 매번 저랑 만날 때마다 다이어트를\n결심하고 오는....두둥탁! 믿어보겠읍니다 이번에는!!",
     "feedback": null,
     "totalVolume": 898,
     "exercises": [
@@ -593,5 +593,17 @@
         "points": []
       }
     ]
+  },
+  {
+    "date": "2026-09-20",
+    "dateLabel": "9월 20일",
+    "weekday": "일",
+    "time": "14시",
+    "part": "등",
+    "condition": null,
+    "note": null,
+    "feedback": null,
+    "totalVolume": 0,
+    "exercises": []
   }
 ]
