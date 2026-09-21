@@ -600,10 +600,118 @@
     "weekday": "일",
     "time": "14시",
     "part": "등",
-    "condition": null,
+    "condition": "좋음",
     "note": null,
     "feedback": null,
-    "totalVolume": 0,
-    "exercises": []
+    "totalVolume": 2075,
+    "exercises": [
+      {
+        "name": "행잉 레그레이즈",
+        "sets": [
+          {
+            "weight": 1,
+            "reps": 20
+          },
+          {
+            "weight": 1,
+            "reps": 20
+          },
+          {
+            "weight": 1,
+            "reps": 20
+          },
+          {
+            "weight": 1,
+            "reps": 20
+          }
+        ],
+        "volume": 80,
+        "points": []
+      },
+      {
+        "name": "렛풀다운",
+        "sets": [
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          }
+        ],
+        "volume": 900,
+        "points": []
+      },
+      {
+        "name": "DY 로우",
+        "sets": [
+          {
+            "weight": 5,
+            "reps": 15
+          },
+          {
+            "weight": 5,
+            "reps": 15
+          },
+          {
+            "weight": 5,
+            "reps": 15
+          },
+          {
+            "weight": 5,
+            "reps": 15
+          },
+          {
+            "weight": 5,
+            "reps": 15
+          }
+        ],
+        "volume": 375,
+        "points": []
+      },
+      {
+        "name": "케이블 로우로우",
+        "sets": [
+          {
+            "weight": 10,
+            "reps": 15
+          },
+          {
+            "weight": 10,
+            "reps": 15
+          }
+        ],
+        "volume": 300,
+        "points": []
+      },
+      {
+        "name": "케이블 로우로우 (와이드그립)",
+        "sets": [
+          {
+            "weight": 10,
+            "reps": 12
+          },
+          {
+            "weight": 10,
+            "reps": 15
+          },
+          {
+            "weight": 10,
+            "reps": 15
+          }
+        ],
+        "volume": 420,
+        "points": []
+      }
+    ]
   }
 ]
