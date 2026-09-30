@@ -743,5 +743,17 @@
         "points": []
       }
     ]
+  },
+  {
+    "date": "2026-09-30",
+    "dateLabel": "9월 30일",
+    "weekday": "수",
+    "time": "20시",
+    "part": "가슴",
+    "condition": null,
+    "note": null,
+    "feedback": null,
+    "totalVolume": 0,
+    "exercises": []
   }
 ]
