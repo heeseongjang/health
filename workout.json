@@ -863,5 +863,17 @@
         ]
       }
     ]
+  },
+  {
+    "date": "2026-10-07",
+    "dateLabel": "10월 7일",
+    "weekday": "수",
+    "time": "20시",
+    "part": "하체",
+    "condition": null,
+    "note": null,
+    "feedback": null,
+    "totalVolume": 0,
+    "exercises": []
   }
 ]
