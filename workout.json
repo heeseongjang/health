@@ -870,10 +870,107 @@
     "weekday": "수",
     "time": "20시",
     "part": "하체",
-    "condition": null,
-    "note": null,
+    "condition": "좋음",
+    "note": "오늘은 귤티가 아니라서 속상했지만! 그래도 다시 하기로 하셨으니\n수제비 그만 드시고 스쿼트 연습 많이 해주시죠! 고관절 많이 뻣뻣ㅠ",
     "feedback": null,
-    "totalVolume": 0,
-    "exercises": []
+    "totalVolume": 10325,
+    "exercises": [
+      {
+        "name": "힙 어브덕션",
+        "sets": [
+          {
+            "weight": 115,
+            "reps": 20
+          },
+          {
+            "weight": 115,
+            "reps": 20
+          },
+          {
+            "weight": 115,
+            "reps": 20
+          },
+          {
+            "weight": 115,
+            "reps": 20
+          }
+        ],
+        "volume": 9200,
+        "points": []
+      },
+      {
+        "name": "힙 쓰러스트",
+        "sets": [
+          {
+            "weight": 5,
+            "reps": 12
+          },
+          {
+            "weight": 5,
+            "reps": 15
+          },
+          {
+            "weight": 5,
+            "reps": 15
+          },
+          {
+            "weight": 5,
+            "reps": 15
+          }
+        ],
+        "volume": 285,
+        "points": []
+      },
+      {
+        "name": "바벨 백 스쿼트 (스미스)",
+        "sets": [
+          {
+            "weight": 5,
+            "reps": 12
+          },
+          {
+            "weight": 5,
+            "reps": 12
+          },
+          {
+            "weight": 5,
+            "reps": 12
+          },
+          {
+            "weight": 5,
+            "reps": 12
+          }
+        ],
+        "volume": 240,
+        "points": []
+      },
+      {
+        "name": "스쿼트 프레스",
+        "sets": [
+          {
+            "weight": 10,
+            "reps": 12
+          },
+          {
+            "weight": 10,
+            "reps": 12
+          },
+          {
+            "weight": 10,
+            "reps": 12
+          },
+          {
+            "weight": 10,
+            "reps": 12
+          },
+          {
+            "weight": 10,
+            "reps": 12
+          }
+        ],
+        "volume": 600,
+        "points": []
+      }
+    ]
   }
 ]
