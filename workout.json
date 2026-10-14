@@ -987,5 +987,17 @@
         ]
       }
     ]
+  },
+  {
+    "date": "2026-10-14",
+    "dateLabel": "10월 14일",
+    "weekday": "수",
+    "time": "20시",
+    "part": "등 + 어깨",
+    "condition": null,
+    "note": null,
+    "feedback": null,
+    "totalVolume": 0,
+    "exercises": []
   }
 ]
