@@ -994,10 +994,122 @@
     "weekday": "수",
     "time": "20시",
     "part": "등 + 어깨",
-    "condition": null,
-    "note": null,
+    "condition": "좋음",
+    "note": "확실히 처음보다 상체 근력이나 날개뼈 움직임 매우 좋아짐\n지금처럼만 열심히 해보시죠! 금요일에 꼼장어 술 조금만!!",
     "feedback": null,
-    "totalVolume": 0,
-    "exercises": []
+    "totalVolume": 1225.5,
+    "exercises": [
+      {
+        "name": "하이 로우",
+        "sets": [
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 2.5,
+            "reps": 15
+          }
+        ],
+        "volume": 82.5,
+        "points": []
+      },
+      {
+        "name": "렛풀다운",
+        "sets": [
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          }
+        ],
+        "volume": 900,
+        "points": []
+      },
+      {
+        "name": "로우로우",
+        "sets": [
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          }
+        ],
+        "volume": 60,
+        "points": []
+      },
+      {
+        "name": "숄더 프레스",
+        "sets": [
+          {
+            "weight": 2.3,
+            "reps": 15
+          },
+          {
+            "weight": 2.3,
+            "reps": 15
+          },
+          {
+            "weight": 2.3,
+            "reps": 15
+          },
+          {
+            "weight": 2.3,
+            "reps": 15
+          }
+        ],
+        "volume": 138,
+        "points": []
+      },
+      {
+        "name": "행잉 레그레이즈",
+        "sets": [
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          }
+        ],
+        "volume": 45,
+        "points": []
+      }
+    ]
   }
 ]
