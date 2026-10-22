@@ -5,11 +5,104 @@
     "weekday": null,
     "time": "20시",
     "part": "가슴",
-    "condition": null,
-    "note": null,
+    "condition": "좋음",
+    "note": "그녀의 반성 인바디 성공! 주말마다 폭식하고 속죄의 반복...\n너무 한끼에 몰아먹는 습관 줄이기 ! 특히나 간식!!!!!!!",
     "feedback": null,
-    "totalVolume": 0,
-    "exercises": []
+    "totalVolume": 1374,
+    "exercises": [
+      {
+        "name": "해머 체스트 프레스",
+        "sets": [
+          {
+            "weight": 1,
+            "reps": 12
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 1,
+            "reps": 15
+          }
+        ],
+        "volume": 57,
+        "points": []
+      },
+      {
+        "name": "인클라인 체스트 프레스 (스미스)",
+        "sets": [
+          {
+            "weight": 1,
+            "reps": 15
+          },
+          {
+            "weight": 5,
+            "reps": 15
+          },
+          {
+            "weight": 5,
+            "reps": 15
+          },
+          {
+            "weight": 5,
+            "reps": 15
+          }
+        ],
+        "volume": 240,
+        "points": []
+      },
+      {
+        "name": "펙덱 플라이",
+        "sets": [
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          }
+        ],
+        "volume": 900,
+        "points": []
+      },
+      {
+        "name": "숄더 프레스",
+        "sets": [
+          {
+            "weight": 2.3,
+            "reps": 15
+          },
+          {
+            "weight": 2.3,
+            "reps": 15
+          },
+          {
+            "weight": 4.5,
+            "reps": 12
+          },
+          {
+            "weight": 4.5,
+            "reps": 12
+          }
+        ],
+        "volume": 177,
+        "points": []
+      }
+    ]
   },
   {
     "date": "2026-08-12",
