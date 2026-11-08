@@ -101,6 +101,10 @@ h1{margin:0; font-size:clamp(28px,4.4vw,40px); font-weight:700; letter-spacing:-
   font-size:21px; font-weight:600; color:var(--accent-ink)}
 .vol-badge span{font-size:11px; color:var(--muted)}
 
+.tag.plan{background:var(--accent-soft); color:var(--accent-ink)}
+.session.plan{border-style:dashed}
+.session.plan .datemark{background:var(--surface-2); color:var(--muted)}
+.plan-row{margin:0; padding:18px 20px; color:var(--muted); font-size:14px}
 .note{display:flex; gap:12px; padding:16px 20px; border-bottom:1px solid var(--line-soft); background:var(--surface)}
 .note .k{flex:0 0 66px; font-size:11.5px; color:var(--muted); padding-top:3px}
 .note p{margin:0; white-space:pre-line; color:var(--ink-2); font-size:14px}
@@ -205,14 +209,15 @@ const ordered = () => (sort === 'desc' ? SESSIONS : SESSIONS.slice().reverse());
 const sortLabel = () => (sort === 'desc' ? '최신순' : '오래된순');
 
 /* ---------- 헤더 통계 ---------- */
-const totalVol = SESSIONS.reduce((s, x) => s + (x.totalVolume || 0), 0);
-const exCount = SESSIONS.reduce((s, x) => s + x.exercises.length, 0);
-for (const [k, v] of [['기록된 날', SESSIONS.length], ['총 볼륨', nf(totalVol)], ['운동 기록', exCount]]) {
+const DONE = SESSIONS.filter(s => !s.planned);
+const totalVol = DONE.reduce((s, x) => s + (x.totalVolume || 0), 0);
+const exCount = DONE.reduce((s, x) => s + x.exercises.length, 0);
+for (const [k, v] of [['기록된 날', DONE.length], ['총 볼륨', nf(totalVol)], ['운동 기록', exCount]]) {
   const box = el('div', 'stat');
   box.append(el('b', null, String(v)), el('span', null, k));
   document.getElementById('stats').append(box);
 }
-const asc = SESSIONS.slice().reverse();
+const asc = DONE.slice().reverse();
 document.getElementById('range').textContent =
   asc.length ? `기록 기간 · ${asc[0].dateLabel} – ${asc[asc.length - 1].dateLabel}` : '';
 
@@ -290,15 +295,27 @@ function sessionCard(s) {
 
   const tags = el('div', 'tags');
   if (s.part) tags.append(el('span', 'tag part', s.part));
-  if (s.condition) tags.append(el('span', 'tag', `컨디션 ${s.condition}`));
-  tags.append(el('span', 'tag', `운동 ${s.exercises.length}개`));
+  if (s.planned) {
+    tags.append(el('span', 'tag plan', '예정'));
+  } else {
+    if (s.condition) tags.append(el('span', 'tag', `컨디션 ${s.condition}`));
+    tags.append(el('span', 'tag', `운동 ${s.exercises.length}개`));
+  }
   when.append(tags);
 
-  const vol = el('div', 'vol-badge');
-  vol.append(el('b', null, nf(s.totalVolume)), el('span', null, '총 볼륨'));
-
-  head.append(mark, when, vol);
+  head.append(mark, when);
+  if (!s.planned) {
+    const vol = el('div', 'vol-badge');
+    vol.append(el('b', null, nf(s.totalVolume)), el('span', null, '총 볼륨'));
+    head.append(vol);
+  }
   card.append(head);
+
+  if (s.planned) {
+    card.classList.add('plan');
+    card.append(el('p', 'plan-row', '아직 기록이 없습니다. 시트에 채워지면 여기에 나타납니다.'));
+    return card;
+  }
 
   for (const [k, text] of [['특이사항', s.note], ['개인운동 후', s.feedback]]) {
     if (!text) continue;
@@ -315,7 +332,7 @@ const visible = () => (pick ? ordered().filter(s => s.date === pick) : ordered()
 function renderSessions(target) {
   const list = visible();
   if (!list.length) { target.append(el('p', 'sub', '선택한 날짜에는 기록이 없습니다.')); return; }
-  target.append(el('p', 'listmeta', pick ? `${list[0].dateLabel} (${list[0].weekday}) · 1회` : `전체 ${list.length}회 · ${sortLabel()}`));
+  target.append(el('p', 'listmeta', pick ? `${list[0].dateLabel} (${list[0].weekday}) · 1회` : `전체 ${list.length}일 · ${sortLabel()}`));
   for (const s of list) target.append(sessionCard(s));
 }
 
