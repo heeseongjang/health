@@ -1393,12 +1393,105 @@
   {
     "time": "20시",
     "part": "등(데드)",
-    "condition": null,
+    "condition": "좋음",
     "note": null,
     "feedback": null,
-    "totalVolume": 0,
-    "exercises": [],
-    "planned": true,
+    "totalVolume": 1980,
+    "exercises": [
+      {
+        "name": "렛풀다운 (뉴트럴 그립)",
+        "sets": [
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          }
+        ],
+        "volume": 900,
+        "points": []
+      },
+      {
+        "name": "시티드 로우 (와이드 그립)",
+        "sets": [
+          {
+            "weight": 10,
+            "reps": 15
+          },
+          {
+            "weight": 10,
+            "reps": 15
+          },
+          {
+            "weight": 10,
+            "reps": 15
+          },
+          {
+            "weight": 10,
+            "reps": 15
+          }
+        ],
+        "volume": 600,
+        "points": []
+      },
+      {
+        "name": "T바 로우",
+        "sets": [
+          {
+            "weight": 1,
+            "reps": 10
+          },
+          {
+            "weight": 1,
+            "reps": 10
+          },
+          {
+            "weight": 1,
+            "reps": 10
+          },
+          {
+            "weight": 1,
+            "reps": 10
+          }
+        ],
+        "volume": 40,
+        "points": []
+      },
+      {
+        "name": "루마니안 데드리프트",
+        "sets": [
+          {
+            "weight": 10,
+            "reps": 12
+          },
+          {
+            "weight": 10,
+            "reps": 10
+          },
+          {
+            "weight": 10,
+            "reps": 10
+          },
+          {
+            "weight": 10,
+            "reps": 12
+          }
+        ],
+        "volume": 440,
+        "points": []
+      }
+    ],
+    "planned": false,
     "date": "2026-11-11",
     "weekday": "수",
     "dateLabel": "11월 11일"
