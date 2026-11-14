@@ -1518,5 +1518,18 @@
     "date": "2026-11-11",
     "weekday": "수",
     "dateLabel": "11월 11일"
+  },
+  {
+    "time": "20시",
+    "part": "가슴+어깨",
+    "condition": null,
+    "note": null,
+    "feedback": null,
+    "totalVolume": 0,
+    "exercises": [],
+    "planned": true,
+    "date": "2026-11-18",
+    "weekday": "수",
+    "dateLabel": "11월 18일"
   }
 ]
