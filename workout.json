@@ -1522,12 +1522,105 @@
   {
     "time": "20시",
     "part": "가슴+어깨",
-    "condition": null,
+    "condition": "좋음",
     "note": null,
     "feedback": null,
-    "totalVolume": 0,
-    "exercises": [],
-    "planned": true,
+    "totalVolume": 2370,
+    "exercises": [
+      {
+        "name": "숄더 프레스",
+        "sets": [
+          {
+            "weight": 4.5,
+            "reps": 15
+          },
+          {
+            "weight": 4.5,
+            "reps": 15
+          },
+          {
+            "weight": 4.5,
+            "reps": 15
+          },
+          {
+            "weight": 4.5,
+            "reps": 15
+          }
+        ],
+        "volume": 270,
+        "points": []
+      },
+      {
+        "name": "펙덱 플라이",
+        "sets": [
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          }
+        ],
+        "volume": 900,
+        "points": []
+      },
+      {
+        "name": "리버스 펙덱 플라이",
+        "sets": [
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          },
+          {
+            "weight": 15,
+            "reps": 15
+          }
+        ],
+        "volume": 900,
+        "points": []
+      },
+      {
+        "name": "체스트 프레스",
+        "sets": [
+          {
+            "weight": 5,
+            "reps": 15
+          },
+          {
+            "weight": 5,
+            "reps": 15
+          },
+          {
+            "weight": 5,
+            "reps": 15
+          },
+          {
+            "weight": 5,
+            "reps": 15
+          }
+        ],
+        "volume": 300,
+        "points": []
+      }
+    ],
+    "planned": false,
     "date": "2026-11-18",
     "weekday": "수",
     "dateLabel": "11월 18일"
