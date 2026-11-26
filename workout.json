@@ -1643,12 +1643,120 @@
   {
     "time": "20시",
     "part": "하체",
-    "condition": null,
+    "condition": "좋음",
     "note": null,
     "feedback": null,
-    "totalVolume": 0,
-    "exercises": [],
-    "planned": true,
+    "totalVolume": 2555,
+    "exercises": [
+      {
+        "name": "몬스터 글루터",
+        "sets": [
+          {
+            "weight": 20,
+            "reps": 15
+          },
+          {
+            "weight": 20,
+            "reps": 15
+          },
+          {
+            "weight": 20,
+            "reps": 15
+          },
+          {
+            "weight": 20,
+            "reps": 15
+          }
+        ],
+        "volume": 1200,
+        "points": []
+      },
+      {
+        "name": "바벨 백 스쿼트 (스미스)",
+        "sets": [
+          {
+            "weight": 5,
+            "reps": 12
+          },
+          {
+            "weight": 5,
+            "reps": 12
+          },
+          {
+            "weight": 5,
+            "reps": 12
+          },
+          {
+            "weight": 5,
+            "reps": 12
+          }
+        ],
+        "volume": 240,
+        "points": []
+      },
+      {
+        "name": "스쿼트 프레스",
+        "sets": [
+          {
+            "weight": 20,
+            "reps": 12
+          },
+          {
+            "weight": 20,
+            "reps": 12
+          },
+          {
+            "weight": 20,
+            "reps": 12
+          },
+          {
+            "weight": 20,
+            "reps": 12
+          }
+        ],
+        "volume": 960,
+        "points": []
+      },
+      {
+        "name": "행잉 레그레이즈",
+        "sets": [
+          {
+            "weight": 1,
+            "reps": 20
+          },
+          {
+            "weight": 1,
+            "reps": 20
+          },
+          {
+            "weight": 1,
+            "reps": 20
+          },
+          {
+            "weight": 1,
+            "reps": 20
+          }
+        ],
+        "volume": 80,
+        "points": []
+      },
+      {
+        "name": "오버헤드 덤벨 트라이셉스 익스텐션",
+        "sets": [
+          {
+            "weight": 2,
+            "reps": 15
+          },
+          {
+            "weight": 3,
+            "reps": 15
+          }
+        ],
+        "volume": 75,
+        "points": []
+      }
+    ],
+    "planned": false,
     "date": "2026-11-25",
     "weekday": "수",
     "dateLabel": "11월 25일"
